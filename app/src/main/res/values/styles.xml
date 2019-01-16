@@ -1,0 +1,34 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="CompatAppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
+
+    <style name="AnimationTheme">
+
+    </style>
+    <style name="BottomSheet.StyleDialog" parent="BottomSheet.Dialog">
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:windowAnimationStyle">@style/BottomSheet.Animation</item>
+        <item name="android:textColorPrimary">@color/color_666</item>
+        <item name="android:textColorSecondary">@color/color_999</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColorHint">#ffffff</item>
+        <item name="bs_dialogBackground">@color/white</item>
+        <item name="bs_dividerColor">@color/colorLine</item>
+        <item name="bs_numColumns">5</item>
+    </style>
+
+    <style name="BottomDialog.Animation" parent="Animation.AppCompat.Dialog">
+        <item name="android:windowEnterAnimation">@anim/translate_dialog_in</item>
+        <item name="android:windowExitAnimation">@anim/translate_dialog_out</item>
+    </style>
+</resources>

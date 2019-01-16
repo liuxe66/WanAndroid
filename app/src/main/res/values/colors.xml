@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#ffffff</color>-->
+    <color name="colorPrimary">#1f5b89</color>
+    <color name="colorPrimaryDark">#1f5b89</color>
+    <color name="colorAccent">#1f5b89</color>
+    <color name="grey_61">#616161</color>
+    <color name="color_333">#333333</color>
+    <color name="color_666">#666666</color>
+    <color name="color_999">#999999</color>
+    <color name="color_ddd">#dddddd</color>
+    <!--分割线-->
+    <color name="colorLine">#EBEBEB</color>
+    <color name="red_500">#e51c23</color>
+    <color name="green_500">#259b24</color>
+    <color name="blue_500">#03a9f4</color>
+</resources>

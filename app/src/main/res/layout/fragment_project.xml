@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            >
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textColor="@color/white"
+                android:text="项目"
+                android:layout_gravity="center"/>
+        </android.support.v7.widget.Toolbar>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:gravity="bottom"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                >
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="20dp"
+                    android:layout_height="23dp"
+                    app:srcCompat="@drawable/ic_vector_head_vertical_line" />
+
+                <TextView
+                    android:id="@+id/tv_type_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:text="完整项目"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_choose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/select_project_bg"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    app:srcCompat="@drawable/ic_vector_head_classify" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="选择分类"
+                    android:textColor="@color/color_666"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <com.yunxiaosheng.baselib.widgets.VRecylerView
+        android:id="@+id/project_recyler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    </com.yunxiaosheng.baselib.widgets.VRecylerView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|right"
+        android:src="@drawable/ic_up_arrow"
+        app:layout_behavior="com.liuxe.wanandroid.ui.widget.FabBehavior"
+        app:backgroundTint="@color/colorPrimary"
+        app:borderWidth="0dp"
+        app:elevation="6dp"
+        app:fabSize="normal"
+        app:pressedTranslationZ="12dp"
+        app:rippleColor="#a6a6a6" />
+</android.support.design.widget.CoordinatorLayout>
