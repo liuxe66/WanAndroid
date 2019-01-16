@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.activity.common.AboutActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary">
+
+    </android.support.v7.widget.Toolbar>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_login_dialog_bg"
+        android:layout_margin="@dimen/dp_10"
+        android:padding="@dimen/dp_10"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@color/color_333"
+        android:lineSpacingMultiplier="1.5"
+        android:text="本项目使用玩安卓api开发的一款玩安卓app，主要用于学习mvp+retrofit+rxjava，主要包含首页推荐，公众号文章，项目分类。
+        \n\n首页推荐banner使用自己封装的viewpager，公众号使用tablayout+viewpager，项目分类使用bottomsheet实现。
+        \n\n自己封装了判断状态VRecylerview加载数据，实现加载中，加载失败，加载空数据。
+        \n\n使用数据库存储文章的浏览状态。"/>
+</LinearLayout>
