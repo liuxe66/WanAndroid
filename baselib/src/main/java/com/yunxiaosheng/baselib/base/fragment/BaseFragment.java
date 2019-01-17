@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yunxiaosheng.baselib.base.activity.BaseActivity;
 import com.yunxiaosheng.baselib.global.GlobalApplication;
 import com.yunxiaosheng.baselib.utils.AppUtils;
 import com.yunxiaosheng.baselib.widgets.WaitPorgressDialog;
@@ -25,14 +26,14 @@ public abstract class BaseFragment extends SupportFragment {
 
     protected String TAG;
     protected Context mContext;
-    protected Activity mActivity;
+    protected BaseActivity mActivity;
     protected GlobalApplication mApplication;
     protected WaitPorgressDialog mWaitPorgressDialog;
     private Unbinder binder;
 
     @Override
     public void onAttach(Context context) {
-        mActivity = (Activity) context;
+        mActivity = (BaseActivity) context;
         mContext = context;
         super.onAttach(context);
     }

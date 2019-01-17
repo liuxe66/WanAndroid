@@ -77,6 +77,9 @@ public class DBUtils {
         return isRead;
     }
 
+    public void clearAll(String table){
+        mSQLiteDatabase.delete(table,"",new String[]{});
+    }
     public class DBHelper extends SQLiteOpenHelper {
 
         public DBHelper(Context context, String name) {

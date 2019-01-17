@@ -20,6 +20,7 @@ import com.yunxiaosheng.baselib.config.DBConfig;
 import com.yunxiaosheng.baselib.utils.BitmapUtils;
 import com.yunxiaosheng.baselib.utils.DBUtils;
 import com.yunxiaosheng.baselib.utils.SpUtils;
+import com.yunxiaosheng.baselib.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -78,6 +79,7 @@ public class Mine2Fragment extends BaseFragment {
                 SpUtils.remove(mContext,SputilsKey.passwoed);
                 DBUtils.getDB(mContext).clearAll(DBConfig.TABLE_ARTICLE);
                 DBUtils.getDB(mContext).clearAll(DBConfig.TABLE_PROJECT);
+                ToastUtils.showToast("已恢复初始设置");
                 break;
         }
     }
