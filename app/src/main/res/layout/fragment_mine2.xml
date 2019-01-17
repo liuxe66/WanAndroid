@@ -42,15 +42,51 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_margin="10dp"
-        android:padding="@dimen/dp_10"
-        android:background="@drawable/shape_login_dialog_bg">
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_login_dialog_bg"
+            android:orientation="vertical">
             <TextView
+                android:id="@+id/url"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="玩安卓"
+                android:text="项目地址"
+                android:layout_margin="@dimen/dp_16"
                 android:textSize="@dimen/sp_16"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/color_333"
                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f5f5f5"
+                />
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="关于项目"
+                android:layout_margin="@dimen/dp_16"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/color_333"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f5f5f5"
+                />
+            <TextView
+                android:id="@+id/clear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="恢复初始"
+                android:layout_margin="@dimen/dp_16"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/color_333"
+                />
+        </LinearLayout>
+
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"

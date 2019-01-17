@@ -3,15 +3,12 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/group_item_collect"
-            android:title="我的收藏"/>
-        <item
             android:id="@+id/group_item_project_address"
             android:title="项目地址"/>
 
         <item
             android:id="@+id/group_item_about"
-            android:title="关于"/>
+            android:title="关于项目"/>
 
     </group>
 

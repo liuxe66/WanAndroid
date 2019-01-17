@@ -29,17 +29,17 @@ public class SplashActivity extends BaseActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-//            if (SpUtils.getInt(mContext,SputilsKey.islogin,0) == 0){
-//                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-//                intent.putExtra("anim", true);
-//                EasyTransitionOptions options = EasyTransitionOptions
-//                        .makeTransitionOptions(SplashActivity.this, ivLogo);
-//
-//                EasyTransition.startActivity(intent, options);
-//            } else {
+            if (SpUtils.getInt(mContext,SputilsKey.islogin,0) == 0){
+                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                intent.putExtra("anim", true);
+                EasyTransitionOptions options = EasyTransitionOptions
+                        .makeTransitionOptions(SplashActivity.this, ivLogo);
+
+                EasyTransition.startActivity(intent, options);
+            } else {
                 Intent intent = new Intent(SplashActivity.this,MainActivity.class);
                 startActivity(intent);
-//            }
+            }
 
             finish();
 
@@ -48,7 +48,7 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void initView(Bundle savedInstanceState) {
 
-        mHandler.sendEmptyMessageDelayed(100,1000);
+        mHandler.sendEmptyMessageDelayed(100,500);
 
     }
 

@@ -1,5 +1,6 @@
 package com.liuxe.wanandroid.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -16,6 +17,8 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.liuxe.wanandroid.R;
+import com.liuxe.wanandroid.ui.activity.common.AboutActivity;
+import com.liuxe.wanandroid.ui.activity.common.WebLoadDetailsActivity;
 import com.liuxe.wanandroid.ui.fragment.home.HomeFragment;
 import com.liuxe.wanandroid.ui.fragment.home.HomeRootFragment;
 import com.liuxe.wanandroid.ui.fragment.mine.MineRootFragment;
@@ -126,14 +129,15 @@ public class MainActivity extends BaseActivity implements HomeFragment.OnOpenDra
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
-                    case R.id.group_item_collect:
-
-                        break;
                     case R.id.group_item_project_address:
-
+                        Bundle bundle = new Bundle();
+                        bundle.putString("title", "玩安卓项目");
+                        bundle.putString("url", "https://github.com/liuxe66/WanAndroid");
+                        startActivity(WebLoadDetailsActivity.class, bundle);
                         break;
                     case R.id.group_item_about:
-
+                        Intent about = new Intent(mContext,AboutActivity.class);
+                        startActivity(about);
                         break;
                 }
                 menuItem.setCheckable(false);
