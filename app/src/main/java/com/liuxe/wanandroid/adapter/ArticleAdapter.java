@@ -34,7 +34,7 @@ public class ArticleAdapter extends BaseQuickAdapter<Article,BaseViewHolder> {
 
         helper.setText(R.id.tv_article_tittle,item.getTitle());
         helper.setText(R.id.tv_article_author,item.getAuthor());
-        helper.setText(R.id.tv_article_type,"专题："+item.getChapterName());
+        helper.setText(R.id.tv_article_type,item.getChapterName());
         helper.setText(R.id.tv_article_date,item.getNiceDate());
     }
 }

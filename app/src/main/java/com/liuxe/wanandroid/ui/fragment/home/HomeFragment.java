@@ -25,10 +25,13 @@ import com.liuxe.wanandroid.contract.home.HomeContract;
 import com.liuxe.wanandroid.presenter.home.HomePresenter;
 
 import com.liuxe.wanandroid.ui.activity.common.SerachActivity;
+import com.orhanobut.logger.Logger;
 import com.yunxiaosheng.baselib.anim.ToolbarAnimManager;
 import com.yunxiaosheng.baselib.base.BasePresenter;
 import com.yunxiaosheng.baselib.base.fragment.BaseMvpFragment;
 
+import com.yunxiaosheng.baselib.rxbus.RxBus;
+import com.yunxiaosheng.baselib.rxbus.Subscribe;
 import com.yunxiaosheng.baselib.utils.ToastUtils;
 import com.yunxiaosheng.baselib.widgets.VRecylerView;
 
@@ -140,6 +143,7 @@ public class HomeFragment extends BaseMvpFragment<HomeContract.Presenter> implem
             }
         });
 
+        RxBus.get().register(this);
 
     }
     @Override
@@ -164,19 +168,6 @@ public class HomeFragment extends BaseMvpFragment<HomeContract.Presenter> implem
                         }
                     })
                     .start();
-
-//            banner.setPageChangeListener(new PageChangeListener() {
-//                @Override
-//                public void scrollToLeft(int position, float positionOffset, int positionOffsetPixels) {
-//                    ToastUtils.showToast("向左滑动position:"+position);
-//                }
-//
-//                @Override
-//                public void scrollToRight(int position, float positionOffset, int positionOffsetPixels) {
-//                    ToastUtils.showToast("向右滑动position:"+position);
-//                }
-//            });
-
 
             mArticleAdapter.addHeaderView(header);
         } else {
@@ -218,6 +209,14 @@ public class HomeFragment extends BaseMvpFragment<HomeContract.Presenter> implem
         }
 
     }
+    /**
+     * 重新加载数据
+     */
+    @Subscribe(code = 1001)
+    public void rxBusEvent() {
+        pageIndex = 0;
+        mPresenter.loadArticle(pageIndex+"");
+    }
 
     @Override
     public void itemNotifyChanged(int position) {
@@ -236,6 +235,12 @@ public class HomeFragment extends BaseMvpFragment<HomeContract.Presenter> implem
     public void onDetach() {
         super.onDetach();
         mOpenDrawerLayoutListener = null;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        RxBus.get().unRegister(this);
     }
 
     @Override

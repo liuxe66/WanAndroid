@@ -14,8 +14,11 @@ import com.liuxe.wanandroid.bean.Articles;
 import com.liuxe.wanandroid.bean.BaseResponse;
 import com.liuxe.wanandroid.contract.tpublic.PublicTabContract;
 import com.liuxe.wanandroid.presenter.tpublic.PublicTabPresenter;
+import com.orhanobut.logger.Logger;
 import com.yunxiaosheng.baselib.base.BasePresenter;
 import com.yunxiaosheng.baselib.base.fragment.BaseMvpFragment;
+import com.yunxiaosheng.baselib.rxbus.RxBus;
+import com.yunxiaosheng.baselib.rxbus.Subscribe;
 import com.yunxiaosheng.baselib.utils.ToastUtils;
 import com.yunxiaosheng.baselib.widgets.VRecylerView;
 
@@ -91,7 +94,7 @@ public class PublicTabFragment extends BaseMvpFragment<PublicTabPresenter> imple
                 mPresenter.loadMoreList(wxId, pageIndex + "");
             }
         }, tabRecyler.getRecyclerView());
-
+        RxBus.get().unRegister(this);
     }
 
     @Override
@@ -132,5 +135,18 @@ public class PublicTabFragment extends BaseMvpFragment<PublicTabPresenter> imple
     public void itemNotifyChanged(int position) {
         mAdapter.notifyItemChanged(position);
     }
-
+    /**
+     * 重新加载数据
+     */
+    @Subscribe(code = 1001)
+    public void rxBusEvent() {
+        Logger.e("重新加载数据");
+        pageIndex = 0;
+        mPresenter.loadList(wxId,pageIndex+"");
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        RxBus.get().unRegister(this);
+    }
 }

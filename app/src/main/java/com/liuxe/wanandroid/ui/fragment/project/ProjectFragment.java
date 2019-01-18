@@ -21,8 +21,11 @@ import com.liuxe.wanandroid.bean.BaseResponse;
 import com.liuxe.wanandroid.bean.Tab;
 import com.liuxe.wanandroid.contract.project.ProjectContract;
 import com.liuxe.wanandroid.presenter.project.ProjectPresenter;
+import com.orhanobut.logger.Logger;
 import com.yunxiaosheng.baselib.base.BasePresenter;
 import com.yunxiaosheng.baselib.base.fragment.BaseMvpFragment;
+import com.yunxiaosheng.baselib.rxbus.RxBus;
+import com.yunxiaosheng.baselib.rxbus.Subscribe;
 import com.yunxiaosheng.baselib.utils.LogUtils;
 import com.yunxiaosheng.baselib.utils.ToastUtils;
 import com.yunxiaosheng.baselib.widgets.VRecylerView;
@@ -102,6 +105,7 @@ public class ProjectFragment extends BaseMvpFragment<ProjectPresenter> implement
                 projectRecyler.getRecyclerView().smoothScrollToPosition(0);
             }
         });
+        RxBus.get().register(this);
     }
 
     private void showBottomSheet() {
@@ -163,6 +167,21 @@ public class ProjectFragment extends BaseMvpFragment<ProjectPresenter> implement
         pageIndex++;
         mList.addAll(response.getData().getDatas());
         mAdapter.setNewData(mList);
+    }
+    /**
+     * 重新加载数据
+     */
+    @Subscribe(code = 1001)
+    public void rxBusEvent() {
+        Logger.e("重新加载数据");
+        pageIndex = 0;
+        mPresenter.loadProjectList(pageIndex+"",cid+"");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        RxBus.get().unRegister(this);
     }
 
     @Override

@@ -10,4 +10,5 @@ public class DBConfig {
     public static final String DB_NAME = "db_name_wanandroid";
     public static final String TABLE_ARTICLE = "table_article";
     public static final String TABLE_PROJECT = "table_project";
+    public static final String TABLE_HISTORY = "table_history";
 }

@@ -17,6 +17,7 @@ import com.liuxe.wanandroid.ui.activity.common.AboutActivity;
 import com.liuxe.wanandroid.ui.activity.common.WebLoadDetailsActivity;
 import com.yunxiaosheng.baselib.base.fragment.BaseFragment;
 import com.yunxiaosheng.baselib.config.DBConfig;
+import com.yunxiaosheng.baselib.rxbus.RxBus;
 import com.yunxiaosheng.baselib.utils.BitmapUtils;
 import com.yunxiaosheng.baselib.utils.DBUtils;
 import com.yunxiaosheng.baselib.utils.SpUtils;
@@ -58,6 +59,8 @@ public class Mine2Fragment extends BaseFragment {
         Bitmap rootBtimap = BitmapUtils.getBitmapFromDrawable(mContext, R.drawable.ic_photo);
         Bitmap rootBlurBitmap = BitmapUtils.getBlurBitmap(mContext, rootBtimap, 20);
         rlTop.setBackground(new BitmapDrawable(rootBlurBitmap));
+
+        tvUsername.setText("");
     }
 
     @OnClick({R.id.url, R.id.about,R.id.clear})
@@ -80,6 +83,7 @@ public class Mine2Fragment extends BaseFragment {
                 DBUtils.getDB(mContext).clearAll(DBConfig.TABLE_ARTICLE);
                 DBUtils.getDB(mContext).clearAll(DBConfig.TABLE_PROJECT);
                 ToastUtils.showToast("已恢复初始设置");
+                RxBus.get().send(1001);
                 break;
         }
     }

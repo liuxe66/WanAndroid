@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liuxe.wanandroid.R;
@@ -64,6 +65,14 @@ public class SerachArticleActivity extends BaseMvpActivity<SerachArticleContract
                 mPresenter.loadArticle(pageIndex+"",keyword);
             }
         },vRecylerview.getRecyclerView());
+
+        mArticleAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                mPresenter.onArticleItemClick(position,mArticleList.get(position));
+            }
+        });
+
     }
 
     @Override

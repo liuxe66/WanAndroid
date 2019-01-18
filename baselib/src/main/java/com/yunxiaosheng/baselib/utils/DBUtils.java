@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.yunxiaosheng.baselib.config.DBConfig;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Horrarndoo on 2017/8/31.
  * <p>
@@ -16,7 +19,8 @@ import com.yunxiaosheng.baselib.config.DBConfig;
 public class DBUtils {
     public static final String CREATE_TABLE_IF_NOT_EXISTS = "create table if not exists %s " +
             "(id integer  primary key autoincrement,key text unique,is_read integer)";
-
+    public static final String CREATE_HISTORY_TABLE_IF_NOT_EXISTS = "create table if not exists %s " +
+            "(id integer  primary key autoincrement,history varchar,date integer)";
     private static DBUtils sDBUtis;
     private SQLiteDatabase mSQLiteDatabase;
 
@@ -77,9 +81,77 @@ public class DBUtils {
         return isRead;
     }
 
+    /**
+     * 插入搜索历史
+     * @param table
+     * @param value
+     */
+    public void insertHistory(String table,String value){
+        //先查询是否已经存在
+        Cursor cursorHas = mSQLiteDatabase.query(table, null, "history=?", new String[]{value}, null,
+                null, null);
+        //已存在 删除
+        if (cursorHas.getCount()!=0){
+            mSQLiteDatabase.delete(table, "history=?", new String[]{value});
+        }
+
+        Cursor cursor = mSQLiteDatabase.query(table, null, null, null, null, null, "id asc");
+        //最多缓存200条
+        if (cursor.getCount() > 200 && cursor.moveToNext()) {
+            mSQLiteDatabase.delete(table, "id=?", new String[]{String.valueOf(cursor.getInt
+                    (cursor.getColumnIndex("id")))});
+        }
+        cursor.close();
+        cursorHas.close();
+        final ContentValues contentValues = new ContentValues();
+        contentValues.put("history", value);
+        contentValues.put("date",System.currentTimeMillis());
+        mSQLiteDatabase.insertWithOnConflict(table, null, contentValues, SQLiteDatabase
+                .CONFLICT_REPLACE);
+    }
+
+    /**
+     * 删除指定搜索历史
+     * @param table
+     * @param value
+     */
+    public void deleteHistory(String table,String value){
+        //先查询是否已经存在
+        Cursor cursorHas = mSQLiteDatabase.query(table, null, "history=?", new String[]{value}, null,
+                null, null);
+        //已存在 删除
+        if (cursorHas.getCount()!=0){
+            mSQLiteDatabase.delete(table, "history=?", new String[]{value});
+        }
+    }
+
+    /**
+     * 查询获取所有搜索历史
+     * @param table
+     * @return
+     */
+    public List<String> queryHistory(String table){
+        Cursor cursor = mSQLiteDatabase.query(table, null, null, null, null, null, "date desc");
+        List<String> list = new ArrayList<>();
+        while (cursor.moveToNext()){
+            list.add(cursor.getString(cursor.getColumnIndex("history")));
+        }
+        cursor.close();
+        return list;
+    }
+
+
+
+
+    /**
+     * 清除表数据
+     * @param table
+     */
     public void clearAll(String table){
         mSQLiteDatabase.delete(table,"",new String[]{});
     }
+
+
     public class DBHelper extends SQLiteOpenHelper {
 
         public DBHelper(Context context, String name) {
@@ -97,6 +169,7 @@ public class DBUtils {
             //数据库打开时就会被调用，将插入新表的操作方到onOpen中
             db.execSQL(String.format(CREATE_TABLE_IF_NOT_EXISTS, DBConfig.TABLE_ARTICLE));
             db.execSQL(String.format(CREATE_TABLE_IF_NOT_EXISTS, DBConfig.TABLE_PROJECT));
+            db.execSQL(String.format(CREATE_HISTORY_TABLE_IF_NOT_EXISTS, DBConfig.TABLE_HISTORY));
         }
 
         @Override

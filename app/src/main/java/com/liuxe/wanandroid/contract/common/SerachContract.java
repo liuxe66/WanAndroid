@@ -10,16 +10,19 @@ import java.util.List;
 
 import io.reactivex.Observable;
 
-public interface SerachHotKeyContract {
+public interface SerachContract {
     abstract class Presenter extends BasePresenter<IModel,IView>{
         public abstract void loadHotKey();
+        public abstract void loadHistory();
     }
 
     interface IModel extends IBaseModel{
         Observable<BaseResponse<List<HotKey>>> loadHotKey();
+        Observable<List<String>> loadHistory();
     }
 
     interface IView extends IBaseActivity{
         void loadHotKey(BaseResponse<List<HotKey>> response);
+        void showHistory(List<String> historyList);
     }
 }
