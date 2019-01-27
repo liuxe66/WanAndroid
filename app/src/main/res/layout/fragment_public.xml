@@ -13,7 +13,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
+            android:background="?attr/themeColor"
             app:layout_scrollFlags="scroll|enterAlways"
             >
             <TextView
@@ -28,7 +28,7 @@
             android:id="@+id/tab_public"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="?attr/themeColor"
             app:tabIndicatorColor="@android:color/white"
             app:tabMode="scrollable"
             app:tabSelectedTextColor="@android:color/white"
@@ -49,7 +49,7 @@
         android:layout_gravity="bottom|right"
         android:src="@drawable/ic_up_arrow"
         app:layout_behavior="com.liuxe.wanandroid.ui.widget.FabBehavior"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="?attr/themeColor"
         app:borderWidth="0dp"
         app:elevation="6dp"
         app:fabSize="normal"

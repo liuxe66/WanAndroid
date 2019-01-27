@@ -74,7 +74,7 @@
                     android:paddingRight="@dimen/dp_4"
                     android:paddingBottom="1dp"
                     android:text="svg"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="?attr/themeColor"
                     android:textSize="12sp" />
 
 

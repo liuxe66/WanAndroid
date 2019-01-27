@@ -31,10 +31,12 @@ import com.yunxiaosheng.baselib.utils.AppUtils;
 import com.yunxiaosheng.baselib.utils.BitmapUtils;
 import com.yunxiaosheng.baselib.utils.FileUtils;
 import com.yunxiaosheng.baselib.utils.NavigationUtils;
+import com.yunxiaosheng.baselib.utils.SpUtils;
 import com.yunxiaosheng.baselib.utils.StatusBarUtils;
 import com.yunxiaosheng.baselib.utils.ToastUtils;
 
 import java.io.File;
+import java.util.Random;
 
 import butterknife.BindView;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -81,6 +83,7 @@ public class MainActivity extends BaseActivity implements HomeFragment.OnOpenDra
 
     @Override
     protected void initView(Bundle savedInstanceState) {
+        StatusBarUtils.setTransparent(this);
         if (savedInstanceState == null) {
             mFragments[FIRST] = HomeRootFragment.newInstance();
             mFragments[SECOND] = PublicRootFragment.newInstance();
@@ -139,9 +142,15 @@ public class MainActivity extends BaseActivity implements HomeFragment.OnOpenDra
                         Intent about = new Intent(mContext,AboutActivity.class);
                         startActivity(about);
                         break;
+                    case R.id.group_item_theme:
+                        Random random = new Random();
+                        int themeIndex = random.nextInt(17)%(17+1);
+                        SpUtils.setThemeIndex(mContext,themeIndex);
+                        reload();
+                        break;
                 }
                 menuItem.setCheckable(false);
-                dlRoot.closeDrawer(GravityCompat.START);
+//                dlRoot.closeDrawer(GravityCompat.START);
                 return true;
             }
         });

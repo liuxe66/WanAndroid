@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Theme Light -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="colorPrimary">?attr/themeColor</item>
+        <item name="colorPrimaryDark">?attr/themeColor</item>
+        <item name="colorAccent">?attr/themeColor</item>
+    </style>
+
+    <!--默认颜色-->
+    <style name="AppBaseTheme.Default">
+        <item name="themeColor">@color/color_default</item>
+    </style>
+    <!-- red -->
+    <style name="AppBaseTheme.Red">
+        <item name="themeColor">@color/md_red_500</item>
+    </style>
+    <!-- pink -->
+    <style name="AppBaseTheme.Pink">
+        <item name="themeColor">@color/md_pink_500</item>
+    </style>
+    <!-- purple -->
+    <style name="AppBaseTheme.Purple">
+        <item name="themeColor">@color/md_purple_500</item>
+    </style>
+    <!-- deep_purple -->
+    <style name="AppBaseTheme.DeepPurple">
+        <item name="themeColor">@color/md_deep_purple_500</item>
+    </style>
+    <!-- indigo -->
+    <style name="AppBaseTheme.Indigo">
+        <item name="themeColor">@color/md_indigo_500</item>
+    </style>
+    <!-- blue -->
+    <style name="AppBaseTheme.Blue">
+        <item name="themeColor">@color/theme_day_blue</item>
+    </style>
+    <!-- cyan -->
+    <style name="AppBaseTheme.Cyan">
+        <item name="themeColor">@color/md_cyan_500</item>
+    </style>
+    <!-- teal -->
+    <style name="AppBaseTheme.Teal">
+        <item name="themeColor">@color/md_teal_500</item>
+    </style>
+    <!-- green -->
+    <style name="AppBaseTheme.Green">
+        <item name="themeColor">@color/md_green_500</item>
+    </style>
+    <!-- light_green -->
+    <style name="AppBaseTheme.LightGreen">
+        <item name="themeColor">@color/md_light_green_500</item>
+    </style>
+    <!-- lime -->
+    <style name="AppBaseTheme.Lime">
+        <item name="themeColor">@color/md_lime_500</item>
+    </style>
+    <!-- yellow -->
+    <style name="AppBaseTheme.Yellow">
+        <item name="themeColor">@color/md_yellow_500</item>
+    </style>
+    <!-- amber -->
+    <style name="AppBaseTheme.Amber">
+        <item name="themeColor">@color/md_amber_500</item>
+    </style>
+    <!-- orange -->
+    <style name="AppBaseTheme.Orange">
+        <item name="themeColor">@color/md_orange_500</item>
+    </style>
+    <!-- deep_orange -->
+    <style name="AppBaseTheme.DeepOrange">
+        <item name="themeColor">@color/md_deep_orange_500</item>
+    </style>
+    <!-- brown -->
+    <style name="AppBaseTheme.Brown">
+        <item name="themeColor">@color/md_brown_500</item>
+    </style>
+    <!-- grey -->
+    <style name="AppBaseTheme.Grey">
+        <item name="themeColor">@color/md_grey_500</item>
+    </style>
+
+
+</resources>

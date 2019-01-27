@@ -1,12 +1,14 @@
 package com.liuxe.wanandroid.ui.fragment.home;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +34,7 @@ import com.yunxiaosheng.baselib.base.fragment.BaseMvpFragment;
 
 import com.yunxiaosheng.baselib.rxbus.RxBus;
 import com.yunxiaosheng.baselib.rxbus.Subscribe;
+import com.yunxiaosheng.baselib.utils.LogUtils;
 import com.yunxiaosheng.baselib.utils.ToastUtils;
 import com.yunxiaosheng.baselib.widgets.VRecylerView;
 
@@ -73,19 +76,15 @@ public class HomeFragment extends BaseMvpFragment<HomeContract.Presenter> implem
     }
 
     @Override
-    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
-        super.onLazyInitView(savedInstanceState);
-        mPresenter.loadArticle(pageIndex+"");
-        mPresenter.loadBanner();
-    }
-
-    @Override
     public int getLayoutId() {
         return R.layout.fragment_home;
     }
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
+        mPresenter.loadArticle(pageIndex+"");
+        mPresenter.loadBanner();
+
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,12 +152,15 @@ public class HomeFragment extends BaseMvpFragment<HomeContract.Presenter> implem
 
     @Override
     public void showBanner(final BaseResponse<List<BannerData>> baseResponse) {
+        LogUtils.e("========showBanner=========");
         if (baseResponse.getErrorCode() == 0){
             List<String> images = new ArrayList<>();
             for (int i = 0 ; i<baseResponse.getData().size() ; i++){
                 images.add(baseResponse.getData().get(i).getImagePath());
             }
-            header = LayoutInflater.from(mContext).inflate(R.layout.item_header_home,null);
+
+            header = LayoutInflater.from(mActivity).inflate(R.layout.item_header_home,null);
+
             banner = header.findViewById(R.id.home_banner);
             banner.setImgList(images)
                     .setOnItemClickListener(new ItemClickListener() {
@@ -170,6 +172,7 @@ public class HomeFragment extends BaseMvpFragment<HomeContract.Presenter> implem
                     .start();
 
             mArticleAdapter.addHeaderView(header);
+
         } else {
             ToastUtils.showToast(baseResponse.getErrorMsg());
         }

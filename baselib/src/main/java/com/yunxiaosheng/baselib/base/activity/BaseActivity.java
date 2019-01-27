@@ -14,7 +14,9 @@ import com.yunxiaosheng.baselib.R;
 import com.yunxiaosheng.baselib.global.GlobalApplication;
 import com.yunxiaosheng.baselib.utils.AppUtils;
 import com.yunxiaosheng.baselib.utils.ResourcesUtils;
+import com.yunxiaosheng.baselib.utils.SpUtils;
 import com.yunxiaosheng.baselib.utils.StatusBarUtils;
+import com.yunxiaosheng.baselib.utils.ThemeUtils;
 import com.yunxiaosheng.baselib.widgets.WaitPorgressDialog;
 
 import butterknife.ButterKnife;
@@ -47,7 +49,8 @@ public abstract class BaseActivity  extends SupportActivity {
     }
 
     private void init(Bundle savedInstanceState) {
-        StatusBarUtils.setTransparent(this);
+//        StatusBarUtils.setTransparent(this);
+        setTheme(ThemeUtils.themeArr[SpUtils.getThemeIndex(this)]);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
@@ -57,6 +60,14 @@ public abstract class BaseActivity  extends SupportActivity {
         AppManager.getAppManager().addActivity(this);
     }
 
+    public void reload() {
+        Intent intent = getIntent();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        finish();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        startActivity(intent);
+    }
     /**
      * 初始化数据
      * <p>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="?attr/themeColor"
     android:orientation="vertical"
     tools:context=".ui.activity.login.LoginActivity">
     <RelativeLayout
@@ -55,7 +55,7 @@
             android:text="登录"
             android:gravity="center"
             android:padding="6dp"
-            android:textColor="@color/colorPrimary"
+            android:textColor="?attr/themeColor"
             android:textSize="18sp"
             android:background="@drawable/select_login_btn_bg"/>
         <TextView
@@ -68,7 +68,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
             android:padding="6dp"
-            android:textColor="@color/colorPrimary"
+            android:textColor="?attr/themeColor"
             android:textSize="18sp"
             android:background="@drawable/select_register_btn_bg"/>
 
@@ -80,7 +80,7 @@
             android:text="先看看"
             android:gravity="center"
             android:padding="6dp"
-            android:textColor="@color/colorPrimary"
+            android:textColor="?attr/themeColor"
             android:textSize="18sp"
             android:background="@drawable/select_not_login_btn_bg"/>
     </LinearLayout>

@@ -14,6 +14,7 @@ import com.liuxe.wanandroid.constant.SputilsKey;
 import com.liuxe.wanandroid.ui.activity.login.LoginActivity;
 import com.yunxiaosheng.baselib.base.activity.BaseActivity;
 import com.yunxiaosheng.baselib.utils.SpUtils;
+import com.yunxiaosheng.baselib.utils.StatusBarUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,7 +48,7 @@ public class SplashActivity extends BaseActivity {
     };
     @Override
     protected void initView(Bundle savedInstanceState) {
-
+        StatusBarUtils.setTransparent(this);
         mHandler.sendEmptyMessageDelayed(100,500);
 
     }

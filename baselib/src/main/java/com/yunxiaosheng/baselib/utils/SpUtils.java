@@ -190,4 +190,13 @@ public class SpUtils {
         return datalist;
     }
 
+    public static int getThemeIndex(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getInt("ThemeIndex", 6);
+    }
+
+    public static void setThemeIndex(Context context, int index) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putInt("ThemeIndex", index).apply();
+    }
 }

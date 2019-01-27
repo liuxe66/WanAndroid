@@ -8,7 +8,7 @@
         android:id="@+id/view_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"/>
+        android:background="?attr/themeColor"/>
     <FrameLayout
         android:id="@+id/fl_root"
         android:layout_width="match_parent"

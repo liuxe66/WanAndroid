@@ -152,7 +152,7 @@ public class StatusBarUtils {
 
         //4.4以上才可以改文字图标颜色
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            if (OSUtil.isMIUI()) {
+            if (OSUtil.isMiui()) {
                 //小米MIUI系统
                 setMIUIStatusBarTextMode(activity, isTextDark);
             } else if (OSUtil.isFlyme()) {

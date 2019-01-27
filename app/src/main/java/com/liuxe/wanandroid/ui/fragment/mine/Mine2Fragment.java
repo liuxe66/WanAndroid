@@ -1,10 +1,13 @@
 package com.liuxe.wanandroid.ui.fragment.mine;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +25,8 @@ import com.yunxiaosheng.baselib.utils.BitmapUtils;
 import com.yunxiaosheng.baselib.utils.DBUtils;
 import com.yunxiaosheng.baselib.utils.SpUtils;
 import com.yunxiaosheng.baselib.utils.ToastUtils;
+
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,8 +47,6 @@ public class Mine2Fragment extends BaseFragment {
     TextView about;
     @BindView(R.id.clear)
     TextView clear;
-
-
 
     public static Mine2Fragment newInstance() {
         return new Mine2Fragment();
@@ -85,6 +88,8 @@ public class Mine2Fragment extends BaseFragment {
                 ToastUtils.showToast("已恢复初始设置");
                 RxBus.get().send(1001);
                 break;
+
         }
     }
+
 }

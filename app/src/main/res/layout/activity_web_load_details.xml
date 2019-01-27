@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context=".ui.activity.common.WebLoadDetailsActivity">
 
@@ -14,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary" />
+        android:background="?attr/themeColor" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -24,12 +22,6 @@
             android:id="@+id/webview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
-        <!--<include-->
-        <!--android:id="@+id/fl_net_view"-->
-        <!--layout="@layout/view_network_status"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"/>-->
 
         <ProgressBar
             android:id="@+id/pb_web"

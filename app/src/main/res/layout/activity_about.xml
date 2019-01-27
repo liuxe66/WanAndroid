@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    android:background="@color/colorPrimary"
+    android:background="?attr/themeColor"
     tools:context=".ui.activity.common.AboutActivity">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary">
+        android:background="?attr/themeColor">
 
     </android.support.v7.widget.Toolbar>
     <TextView
