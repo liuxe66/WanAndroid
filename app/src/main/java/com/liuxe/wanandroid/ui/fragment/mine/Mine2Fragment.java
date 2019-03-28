@@ -83,6 +83,7 @@ public class Mine2Fragment extends BaseFragment {
                 SpUtils.remove(mContext,SputilsKey.islogin);
                 SpUtils.remove(mContext,SputilsKey.username);
                 SpUtils.remove(mContext,SputilsKey.passwoed);
+                SpUtils.setThemeIndex(mContext,0);
                 DBUtils.getDB(mContext).clearAll(DBConfig.TABLE_ARTICLE);
                 DBUtils.getDB(mContext).clearAll(DBConfig.TABLE_PROJECT);
                 ToastUtils.showToast("已恢复初始设置");
